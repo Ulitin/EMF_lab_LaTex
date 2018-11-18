@@ -1,0 +1,137 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{cmap}
+
+
+
+\begin{document}
+\section{Теоретическое задание 1}
+Рассмотрим общую краевую задачу для уравнения теплопроводности.
+Найти решения равнения:
+
+\begin{displaymath}
+u_{t} = a u_{xx} + f(x, t)
+\eqno(1)\
+\end{displaymath}
+ 
+с дополнительными условями
+
+\begin{displaymath}
+u(x, 0) = \varphi(x)
+\end{displaymath}
+\begin{displaymath}
+u_{x}(0, t) = \mu(x)
+\end{displaymath}
+\begin{displaymath}
+u_{x}(l, t) = \gamma(x)
+\end{displaymath}
+
+Введем новую неизвестную функцию $v(x, t)$: $u(x, t) = v(x, t) + \omega(x, t)$, представляющее отклонение от некоторой неизвестной функции $\omega(x, t)$. Эта функция $v(x, t)$ будет определятся как решение уравнения:
+
+\begin{displaymath}
+v_{t} + \omega_{t} = a^2 (v_{xx} - \omega_{xx}) + f(x, t)
+\end{displaymath}
+\begin{displaymath}
+v_{t} - a^2 v_{xx} = f(x, t) - (\omega_{t} + a^2 \omega_{xx})
+\end{displaymath}
+\begin{displaymath}
+v_{t} - a^2 v_{xx} = \widetilde{f}(x, t)
+\end{displaymath}
+\begin{displaymath}
+\widetilde{f}(x, t) = f(x, t) - (\omega_{t} + a^2 \omega_{xx})
+\end{displaymath}
+
+с дополнительными условиями:
+
+\begin{displaymath}
+v(x, 0) = \widetilde{\varphi}(x),		\widetilde{\varphi} = \varphi(x) - \omega(x, 0)
+\end{displaymath}
+\begin{displaymath}
+v_{x}(0, t) = \widetilde{\mu}(x),		\widetilde{\mu} = \mu(t) - \omega_{x}(0, t)
+\end{displaymath}
+\begin{displaymath}
+v_{x}(l, t) = \widetilde{\gamma}(x),	\widetilde{\gamma} = \gamma(t) - \omega_{x}(l, t)
+\end{displaymath}
+
+ Выберем вспмогательную функцию $\omega(x, t)$ таким образом, чтобы $\widetilde{\mu}(t) = 0$ и $\widetilde{\gamma}(t) = 0$. Для чего достаточно положить
+
+\begin{displaymath}
+\omega(x, t) = \mu(t) + \frac{x^2}{2 l} (\gamma(t) - \mu(t))
+\end{displaymath}
+
+\begin{displaymath}
+\widetilde{\mu}(t) = \mu(t) - \omega_{x}(0, t) = \mu(t) - \gamma(t) - \frac{2 l}{2 l} (\gamma(t) - \mu(t)) = 0
+\end{displaymath}
+
+\begin{displaymath}
+\widetilde{\gamma}(t) = \gamma(t) - \omega_{x}(l, t) = \gamma(t) - \mu(t) - \frac{2 l}{2 l} (\mu(t) - \gamma(t)) = 0
+\end{displaymath}
+
+Таким образом, нахождения функция $u(x, t)$, дающий решение краевой задачи (1), сведено к нахождению функцию v(x, t), с нулевыми граничными условиями:
+
+\begin{displaymath}
+	\begin{cases}
+	v_{t} = a^2 v_{xx} + \widetilde{f}(x, t) | * X_(n) \\
+	v(x, 0) = \widetilde{\psi}(x) \\
+	v_{x}(0, t) = v_{x}(l, t) = 0
+	\end{cases}
+\eqno(2)\
+\end{displaymath}
+
+\begin{displaymath}
+v_{gr} = X(x) T(t)
+\end{displaymath}
+\begin{displaymath}
+X T' = a^2 X" T |: a^2 X T
+\end{displaymath}
+\begin{displaymath}
+\frac{T'}{a^2 T} = \frac{X"}{X} = - \lambda
+\end{displaymath}
+\begin{displaymath}
+X" + \lambda * x = 0
+\end{displaymath}
+\begin{displaymath}
+X'(0) = X'(l) = 0
+\end{displaymath}
+Получили задачу Штурам-Лиувилля.
+
+Будем искать решение этой задачи в виде ряда Фурье по собственным функциям задачи (2):
+
+\begin{displaymath}
+v(x, t) = \sum\limits_{i=1}^n X_{n}(x) C_{n}(t),
+\end{displaymath}
+где
+\begin{displaymath}
+X_{n}(x) = \sqrt{\frac{2}{l}} cos(\frac{\pi n}{l} x),
+\end{displaymath}
+а
+\begin{displaymath}
+C_{n}(t) = \int\limits_0^l v(x, t) X_{n}(x)\,dx = (v, X_{n})
+\end{displaymath}
+
+Используем правило Лейбница для следуещей формулы
+
+\begin{displaymath}
+(v_{t}(x, t), X_{n}(x)) = \frac{d}{dt} \int\limits_0^l v(x, t) X_{n}(x)\,dx = C'_{n}(t)
+\end{displaymath}
+
+\begin{displaymath}
+(a^2 v_{xx}, X_{n}) = a^2 \int\limits_0^l  v_{xx} X_{n}\,dx =
+ a^2 (v_{x} X_{n}\bigg|_0^l - \int\limits_0^l  v_{x} X'_{n}\,dx) =
+-a^2 (X'_{n}v\bigg|_0^l  - \int\limits_0^l  v X''_{n}\,dx) =
+\end{displaymath}
+\begin{displaymath}
+= -a^2 \sqrt( \frac{2}{l}) \frac{\pi^2 n^2}{l^2} \int\limits_0^l  v cos(\frac{\pi n}{l})\,dx) =
+-a^2 \frac{\pi^2 n^2}{l^2} C_{n}
+\eqno(\lambda^2_{n} = \frac{\pi^2 n^2}{l^2})\
+\end{displaymath}
+
+
+
+\end{document}

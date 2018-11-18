@@ -1,0 +1,111 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{cmap}
+\usepackage{graphicx}
+
+
+
+\begin{document}
+\section{Теоретическое задание 4}
+Решение $u$ называется стационарным, если оно не зависит от времени $u(x, t) = u(x)$ (предпологаем, что $f(x, t) \equiv f(x)$). Для стационарного решения, очевидно, $\frac{du}{dt} \equiv 0$.
+
+\begin{equation*}
+    a^2 u_{xx} -f(x) = 0 \Rightarrow
+    \eqno(1)\
+\end{equation*}
+\begin{equation*}
+    \Rightarrow \delta u = -f(x) -
+\end{equation*}
+- уравнение Пуассона (элептическое д.у.).
+Если $f(x) \equiv 0$, то (1) - уравнение Лаппласа.\\
+1) Начальные условия на установление стационарного режима не влияют.\\
+2) Граничные условия:\\
+    \par $\sim \frac{1}{t}$ - устанавливается стационарное равновесие\\
+    \par $\sim cos(), sin()$ - не устанавливается\\
+3) Если $f(x, t)$ зависит только от x или является константой, то со временем к стационарному режиму придет.\\
+В противном случаи, сложно ожидать, что стационарный режим установится.
+
+\begin{center}
+\begin{equation*}
+    u_{o.o.} = C_1 x + C_2
+\\
+    a^2 u_{xx} - f(x) = 0 \Leftrightarrow u_{xx} = \frac{f(x)}{a^2}
+\\
+    u_{o.n.} = C_1 x + C_2 - \frac
+        {\int\limits_0^x {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+        {a^2}
+\end{equation*}
+\end{center}
+
+Граничные условия:
+\begin{center}
+    $\left[
+        \begin{gathered}
+                u(0) = \mu_1(x) \\
+                u(l) = \mu_2(x) \\
+        \end{gathered}
+    \right.$
+\end{center}
+
+\begin{center}
+    \begin{gathered}
+        u(0) = \mu_1(x)
+\\
+        \mu_1(x) = C_2
+\\
+        \mu_2(x) = C_1 l + C_2 - \frac
+            {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+            {a^2} 
+            = C_1 l + \mu_1(x) - \frac
+            {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+            {a^2}
+\\
+            C_1 = \frac{-\mu_1(x)}{l} - \frac
+            {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+            {a^2 l}
+            + \frac{\mu_2(x)}{l}
+\\
+    \end{gathered}
+\end{center}
+
+\begin{center}
+\begin{equation*}
+        M_{o.n.} = \frac{1}{l} 
+        \left(
+            \frac{-\mu_1(x)}{l} - 
+            \frac
+                {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+                {a^2}
+            + \mu_2(x)
+        \right)
+        x + \mu_1(x) -
+        \frac
+            {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+            {a^2}
+\end{equation*}
+\end{center}
+
+Проверка:
+
+\begin{center}
+\begin{gathered}
+    M(0) = \mu_1 \\
+    M(l) = -\mu_1(x) +
+    \frac
+        {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+        {a^2}
+    + \mu_2 - \mu_1
+    \frac
+        {\int\limits_0^l {\int\limits_0^y f(\xi) \, d\xi} \, dy}
+        {a^2}
+    = \mu_2
+\end{gathered}
+\end{center}
+
+\end{document}
